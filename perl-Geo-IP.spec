@@ -1,44 +1,55 @@
 #
 # Conditional build:
-# _without_tests - do not perform "make test"
+# _with_tests - perform "make test" (requires working DNS - but may fail anyway,
+#				     because of some NXDOMAIN)
 #
-# ToDo:
-# - make the package build even with tests
-# - summary / descriptions
 %include	/usr/lib/rpm/macros.perl
 %define	pdir	Geo
 %define	pnam	IP
-Summary:	-
-Summary(pl):	-
+Summary:	Geo::IP - look up country by IP Address
+Summary(pl):	Geo::IP - odszukanie kraju po adresie IP
 Name:		perl-%{pdir}-%{pnam}
 Version:	1.15
 Release:	0.1
 License:	GPL	
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
+BuildRequires:	GeoIP-devel
 BuildRequires:	perl-devel >= 5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
-BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
+This module uses a file based database. This database simply contains
+IP blocks as keys, and countries as values. This database should be
+more complete and accurate than reverse DNS lookups.
+
+This module can be used to automatically select the geographically
+closest mirror, to analyze your web server logs to determine the
+countries of your visitors, for credit card fraud detection, and for
+software export controls.
 
 %description -l pl
+Ten modu³ u¿ywa bazy danych w postaci pliku. W bazie tej adresy IP s±
+kluczami, a pañstwa warto¶ciami. Powinna ona byæ dok³adniejsza ni¿
+sprawdzanie odwrotnego DNS.
+
+Ta biblioteka mo¿e byæ u¿ywana do automatycznego wyboru najbli¿szego
+geograficznie mirrora, analizy logów serwera WWW w celu okre¶lenia
+kraju, z którego pochodz± odwiedzaj±cy, do wykrywania oszustw
+dotycz±cych kart kredytowych oraz kontroli eksportu oprogramowania.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
 
 %build
-# Don't use pipes here: they generally don't work. Apply a patch.
 %{__perl} Makefile.PL \
-	INSTALLDIRS=vendor \
-	LIBS="-L/usr/lib" \
-	INC='-I/usr/include'
-%{__make}
-# if module isn't noarch, use:
-# %{__make} OPTIMIZE="%{rpmcflags}"
+	INSTALLDIRS=vendor
 
-%{!?_without_tests:%{__make} test}
+%{__make} \
+	OPTIMIZE="%{rpmcflags}"
+
+%{?_with_tests:%{__make} test}
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -52,7 +63,12 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc Changes README
-# use macros:
-#%%{perl_vendorlib}/...
-%{perl_vendorarch}/*
+%dir %{perl_vendorarch}/Geo
+%{perl_vendorarch}/Geo/*.pm
+%dir %{perl_vendorarch}/Geo/IP
+%{perl_vendorarch}/Geo/IP/*.pm
+%dir %{perl_vendorarch}/auto/Geo
+%dir %{perl_vendorarch}/auto/Geo/IP
+%{perl_vendorarch}/auto/Geo/IP/IP.bs
+%attr(755,root,root) %{perl_vendorarch}/auto/Geo/IP/IP.so
 %{_mandir}/man3/*
