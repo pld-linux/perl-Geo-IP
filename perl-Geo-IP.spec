@@ -8,7 +8,7 @@
 %define	pnam	IP
 Summary:	Geo::IP - look up country by IP Address
 Summary(pl):	Geo::IP - odszukanie kraju po adresie IP
-Name:		perl-%{pdir}-%{pnam}
+Name:		perl-Geo-IP
 Version:	1.21
 Release:	2
 # same as perl
