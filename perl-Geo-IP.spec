@@ -11,7 +11,7 @@ Summary(pl):	Geo::IP - odszukanie kraju po adresie IP
 Name:		perl-%{pdir}-%{pnam}
 Version:	1.21
 Release:	0.1
-License:	GPL	
+License:	GPL
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	aecdf56c0340b59b66532950e40a9f63
