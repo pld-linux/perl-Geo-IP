@@ -1,7 +1,7 @@
 #
 # Conditional build:
-# _with_tests - perform "make test" (requires working DNS - but may fail anyway,
-#				     because of some NXDOMAIN)
+%bcond_with	tests	# perform "make test" 
+			# (requires working DNS - but may fail anyway, because of some NXDOMAIN)
 #
 %include	/usr/lib/rpm/macros.perl
 %define	pdir	Geo
@@ -50,7 +50,7 @@ dotycz±cych kart kredytowych oraz kontroli eksportu oprogramowania.
 %{__make} \
 	OPTIMIZE="%{rpmcflags}"
 
-%{?_with_tests:%{__make} test}
+%{?with_tests:%{__make} test}
 
 %install
 rm -rf $RPM_BUILD_ROOT
