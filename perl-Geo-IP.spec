@@ -7,7 +7,7 @@
 %define		pdir	Geo
 %define		pnam	IP
 Summary:	Geo::IP - look up country by IP Address
-Summary(pl):	Geo::IP - odszukanie kraju po adresie IP
+Summary(pl.UTF-8):   Geo::IP - odszukanie kraju po adresie IP
 Name:		perl-Geo-IP
 Version:	1.27
 Release:	1
@@ -32,15 +32,15 @@ closest mirror, to analyze your web server logs to determine the
 countries of your visitors, for credit card fraud detection, and for
 software export controls.
 
-%description -l pl
-Ten modu≥ uøywa bazy danych w postaci pliku. W bazie tej adresy IP s±
-kluczami, a paÒstwa warto∂ciami. Powinna ona byÊ dok≥adniejsza niø
+%description -l pl.UTF-8
+Ten modu≈Ç u≈ºywa bazy danych w postaci pliku. W bazie tej adresy IP sƒÖ
+kluczami, a pa≈Ñstwa warto≈õciami. Powinna ona byƒá dok≈Çadniejsza ni≈º
 sprawdzanie odwrotnego DNS.
 
-Ta biblioteka moøe byÊ uøywana do automatycznego wyboru najbliøszego
-geograficznie mirrora, analizy logÛw serwera WWW w celu okre∂lenia
-kraju, z ktÛrego pochodz± odwiedzaj±cy, do wykrywania oszustw
-dotycz±cych kart kredytowych oraz kontroli eksportu oprogramowania.
+Ta biblioteka mo≈ºe byƒá u≈ºywana do automatycznego wyboru najbli≈ºszego
+geograficznie mirrora, analizy log√≥w serwera WWW w celu okre≈õlenia
+kraju, z kt√≥rego pochodzƒÖ odwiedzajƒÖcy, do wykrywania oszustw
+dotyczƒÖcych kart kredytowych oraz kontroli eksportu oprogramowania.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
