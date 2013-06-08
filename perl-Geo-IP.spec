@@ -10,7 +10,7 @@ Summary:	Geo::IP - look up country by IP Address
 Summary(pl.UTF-8):	Geo::IP - odszukanie kraju po adresie IP
 Name:		perl-Geo-IP
 Version:	1.40
-Release:	1
+Release:	2
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
