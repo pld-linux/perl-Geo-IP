@@ -73,6 +73,5 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_vendorarch}/Geo/IP/*.pm
 %dir %{perl_vendorarch}/auto/Geo
 %dir %{perl_vendorarch}/auto/Geo/IP
-%{perl_vendorarch}/auto/Geo/IP/IP.bs
 %attr(755,root,root) %{perl_vendorarch}/auto/Geo/IP/IP.so
 %{_mandir}/man3/*
