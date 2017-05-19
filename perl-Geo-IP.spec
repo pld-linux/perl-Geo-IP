@@ -9,13 +9,13 @@
 Summary:	Geo::IP - look up country by IP Address
 Summary(pl.UTF-8):	Geo::IP - odszukanie kraju po adresie IP
 Name:		perl-Geo-IP
-Version:	1.45
-Release:	4
+Version:	1.50
+Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/Geo/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	781fbf2a6b6505e86e3e5ebe05254928
+# Source0-md5:	546b7bec5ae2076b1640fddee98d5717
 URL:		http://search.cpan.org/dist/Geo-IP/
 BuildRequires:	GeoIP-devel
 BuildRequires:	perl-devel >= 1:5.8.0
@@ -67,7 +67,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc Changes README
+%doc Changes
 %dir %{perl_vendorarch}/Geo
 %{perl_vendorarch}/Geo/*.pm
 %dir %{perl_vendorarch}/Geo/IP
