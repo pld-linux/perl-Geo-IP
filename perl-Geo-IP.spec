@@ -3,7 +3,6 @@
 %bcond_with	tests	# perform "make test" 
 			# (requires working DNS - but may fail anyway, because of some NXDOMAIN)
 #
-%include	/usr/lib/rpm/macros.perl
 %define		pdir	Geo
 %define		pnam	IP
 Summary:	Geo::IP - look up country by IP Address
